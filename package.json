@@ -4,7 +4,8 @@
   "description": "making todo list app using EJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/avinashpanchal123/TODO-app/issues"
   },
-  "homepage": "https://github.com/avinashpanchal123/TODO-app#readme"
+  "homepage": "https://github.com/avinashpanchal123/TODO-app#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3"
+  }
 }
