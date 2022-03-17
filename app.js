@@ -1,14 +1,15 @@
 const express = require("express");
-
+const tasks = require("./tasks.json")
 const bodyParser = require("body-parser");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 
-let tasks = []
 
 
 app.set("view engine", "ejs");
+
+app.use(express.static("public"))
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -26,12 +27,13 @@ console.log(output);
 
 app.get("/", (req, res) => {
  
-  res.render("list", {kindOfDay : output});
+  res.render("list", {kindOfDay : output, taskArr : tasks});
 });
 
 app.post("/", (req, res)=>{
-    console.log(req.body.newTask);
-  
+    let newTask = (req.body.newTask);
+    tasks.push(newTask)
+    res.redirect("/")
 })
 
 app.listen(2255, () => {
